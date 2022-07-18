@@ -27,7 +27,6 @@ class Contact extends Component {
                 email: false
             }
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
@@ -37,8 +36,7 @@ class Contact extends Component {
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-    
+        const name = target.name;   
         this.setState({
           [name]: value
         });
