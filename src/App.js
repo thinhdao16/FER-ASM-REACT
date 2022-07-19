@@ -1,27 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent';
-import { DISHES } from './shared/dishes';
-import Main from './components/MainComponent';
+import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+import Main from './components/MainComponent';
+import './App.css';
+
+const store = ConfigureStore();
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dishes: DISHES
-    };
-  }
+  
   render() {
     return (
-      <BrowserRouter>
-      <div className="App">
-        <Main />
-      </div>
-    </BrowserRouter>
-
+      <Provider store={store}>
+        <BrowserRouter>
+          {/* <div className="App"> */}
+          <div>
+            <Main />
+          </div>
+        </BrowserRouter>
+      </Provider>
+      // <BrowserRouter>
+      //   <div className="App">
+      //     <Main />
+      //   </div>
+      // </BrowserRouter>
     );
-  }
+  }  
+
 }
 
 export default App;
